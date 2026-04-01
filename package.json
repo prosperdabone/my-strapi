@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-     "setup:frontend": "cd frontend && npm install",
-     "setup:backend": "cd backend && npm install",
-     "setup": "npm install && npm run setup:frontend && npm run setup:backend",
-     "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run develop --prefix backend\""
+    "setup:frontend": "npm install --prefix frontend",
+    "setup:backend": "npm install --prefix backend",
+    "setup": "npm install",
+    "postinstall": "npm run setup:frontend && npm run setup:backend",
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run develop --prefix backend\""
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
